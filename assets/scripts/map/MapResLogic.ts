@@ -6,6 +6,9 @@ import MapBaseLayerLogic from "./MapBaseLayerLogic";
 import { MapResData } from "./MapProxy";
 import MapUtil from "./MapUtil";
 
+/**
+ * 资源点渲染
+ */
 @ccclass('MapResLogic')
 export default class MapResLogic extends MapBaseLayerLogic {
 

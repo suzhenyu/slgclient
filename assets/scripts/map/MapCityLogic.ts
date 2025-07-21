@@ -8,8 +8,10 @@ import { MapCityData } from "./MapCityProxy";
 import { EventMgr } from '../utils/EventMgr';
 import { LogicEvent } from '../common/LogicEvent';
 
+/**
+ * 城市渲染
+ */
 @ccclass('MapCityLogic')
-
 export default class MapCityLogic extends MapBaseLayerLogic {
 
     protected onLoad(): void {

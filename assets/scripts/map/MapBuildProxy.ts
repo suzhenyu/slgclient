@@ -132,6 +132,9 @@ export class MapBuildData {
     }
 }
 
+/**
+ * 建筑数据代理
+ */
 export default class MapBuildProxy {
     protected _mapBuilds: MapBuildData[] = [];
     protected _myBuilds: MapBuildData[] = [];

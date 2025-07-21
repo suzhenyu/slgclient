@@ -10,6 +10,9 @@ import MapUtil from "./MapUtil";
 import { EventMgr } from '../utils/EventMgr';
 import { LogicEvent } from '../common/LogicEvent';
 
+/**
+ * 触摸处理
+ */
 @ccclass('MapTouchLogic')
 export default class MapTouchLogic extends Component {
     @property(Prefab)

@@ -86,6 +86,9 @@ export class MapAreaData {
     }
 }
 
+/**
+ * 地图数据代理
+ */
 export default class MapProxy {
     public warFree:number = 0; //免战时间
     public tiledMapAsset: TiledMapAsset = null;
@@ -184,6 +187,17 @@ export default class MapProxy {
     }
 
 
+    /**
+     * 这是系统的核心优化机制
+     * 地图被划分为多个区域(Area)
+     * 每个区域包含 N*N 个格子
+     * 只加载玩家视野周围的9个区域(3*3九宫格)
+     * 步骤:
+     *  1. 计算当前中心点所在的区域
+     *  2. 计算九宫格可见区域
+     *  3. 对比新旧区域, 得出需要加载/卸载的区域
+     *  4. 派发 mapShowAreaChange 事件
+     */
 
     /**设置地图当前中心点的信息*/
     public setCurCenterPoint(point: Vec2, pixelPoint: Vec2): boolean {

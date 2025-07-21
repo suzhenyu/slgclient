@@ -8,6 +8,9 @@ import MapUtil from "./MapUtil";
 import { EventMgr } from '../utils/EventMgr';
 import { LogicEvent } from '../common/LogicEvent';
 
+/**
+ * 建筑渲染
+ */
 @ccclass('MapResBuildLogic')
 export default class MapResBuildLogic extends MapBaseLayerLogic {
 

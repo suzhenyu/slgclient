@@ -67,6 +67,9 @@ export class MapCityData {
     }
 }
 
+/**
+ * 城市数据代理
+ */
 export default class MapCityProxy {
     protected _mapCitys: MapCityData[] = [];
     protected _lastCityCellIds: Map<number, number[]> = new Map<number, number[]>();

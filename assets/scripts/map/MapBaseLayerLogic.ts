@@ -3,6 +3,9 @@ const { ccclass, property } = _decorator;
 
 import MapCommand from "./MapCommand";
 
+/**
+ * 视图基类
+ */
 @ccclass('MapBaseLayerLogic')
 export default class MapBaseLayerLogic extends Component {
     @property(Node)

@@ -12,6 +12,9 @@ import MapUICommand from "./ui/MapUICommand";
 import { EventMgr } from '../utils/EventMgr';
 import { LogicEvent } from '../common/LogicEvent';
 
+/**
+ * 命令中心
+ */
 export default class MapCommand {
     //单例
     protected static _instance: MapCommand;
@@ -35,6 +38,7 @@ export default class MapCommand {
     protected _proxy: MapProxy = new MapProxy();
     protected _cityProxy: MapCityProxy = new MapCityProxy();
     protected _buildProxy: MapBuildProxy = new MapBuildProxy();
+
     protected _isQryMyProperty: boolean = false;
 
     constructor() {

@@ -17,6 +17,9 @@ import { EventMgr } from '../utils/EventMgr';
 import { LogicEvent } from '../common/LogicEvent';
 import { CoreEvent } from '../core/coreEvent';
 
+/**
+ * 场景总控制器
+ */
 @ccclass('MapScene')
 export default class MapScene extends Component {
     @property(Node)
@@ -36,7 +39,9 @@ export default class MapScene extends Component {
         tiledMap.tmxAsset = this._cmd.proxy.tiledMapAsset;
         
         MapUtil.initMapConfig(tiledMap);
+
         this._cmd.initData();
+
         EventMgr.on(LogicEvent.mapShowAreaChange, this.onMapShowAreaChange, this);
         EventMgr.on(LogicEvent.scrollToMap, this.onScrollToMap, this);
         
@@ -60,8 +65,8 @@ export default class MapScene extends Component {
         this._cmd = null;
     }
 
+    /// 每 0.2 秒调用一次该方法
     protected onTimer(): void {
-        
         if (this._cmd.proxy.qryAreaIds && this._cmd.proxy.qryAreaIds.length > 0) {
             let qryIndex: number = this._cmd.proxy.qryAreaIds.shift();
             let qryData: MapAreaData = this._cmd.proxy.getMapAreaData(qryIndex);
@@ -82,9 +87,8 @@ export default class MapScene extends Component {
         }
     }
 
+    /// 当地图显示区域发生变化时, 响应该方法
     protected onMapShowAreaChange(centerPoint: Vec2, centerAreaId: number, addIds: number[], removeIds: number[]): void {
-        
-    
         let resLogic: MapResLogic = this.node.getComponent(MapResLogic);
         let buildResLogic: MapResBuildLogic = this.node.getComponent(MapResBuildLogic);
         let buildFacilityLogic: MapFacilityBuildLogic = this.node.getComponent(MapFacilityBuildLogic);

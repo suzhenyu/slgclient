@@ -6,6 +6,9 @@ import MapUtil from "./MapUtil";
 import { EventMgr } from '../utils/EventMgr';
 import { LogicEvent } from '../common/LogicEvent';
 
+/**
+ * 用户交互控制
+ */
 @ccclass('MapLogic')
 export default class MapLogic extends Component {
     protected _cmd: MapCommand;

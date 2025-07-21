@@ -1,6 +1,13 @@
 import { _decorator, Size, Vec2, size, v2, TiledMap, UITransform, game, view } from 'cc';
 import MapCommand from "./MapCommand";
 
+/**
+ * 坐标转换工具
+ * 系统定义了三种坐标系:
+ *  1. 地图格子坐标: 逻辑网格坐标(x,y)
+ *  2. 地图像素坐标: 相对于地图节点的像素坐标
+ *  3. 世界像素坐标: Cocos Creator 场景全局坐标
+ */
 export default class MapUtil {
     //地图像素大小
     protected static _mapPixelSize: Size = null;
