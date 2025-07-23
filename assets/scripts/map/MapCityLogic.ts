@@ -13,20 +13,20 @@ import { LogicEvent } from '../common/LogicEvent';
  */
 @ccclass('MapCityLogic')
 export default class MapCityLogic extends MapBaseLayerLogic {
-
     protected onLoad(): void {
         super.onLoad();
+
         EventMgr.on(LogicEvent.updateCitys, this.onUpdateCitys, this);
         EventMgr.on(LogicEvent.updateCity, this.onUpdateCity, this);
     }
 
     protected onDestroy(): void {
         EventMgr.targetOff(this);
+
         super.onDestroy();
     }
 
     protected onUpdateCitys(areaIndex: number, addIds: number[], removeIds: number[], updateIds: number[]): void {
-    
         if (this._itemMap.has(areaIndex)) {
             for (let i: number = 0; i < addIds.length; i++) {
                 this.addItem(areaIndex, this._cmd.cityProxy.getCity(addIds[i]));
@@ -40,8 +40,8 @@ export default class MapCityLogic extends MapBaseLayerLogic {
         }
     }
 
-    protected onUpdateCity(city:MapCityData):void {
-        let areaIndex:number = MapUtil.getAreaIdByCellPoint(city.x, city.y);
+    protected onUpdateCity(city: MapCityData): void {
+        let areaIndex: number = MapUtil.getAreaIdByCellPoint(city.x, city.y);
         if (this._itemMap.has(areaIndex)) {
             this.addItem(areaIndex, city);
         }

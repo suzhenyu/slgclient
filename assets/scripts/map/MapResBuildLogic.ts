@@ -13,9 +13,9 @@ import { LogicEvent } from '../common/LogicEvent';
  */
 @ccclass('MapResBuildLogic')
 export default class MapResBuildLogic extends MapBaseLayerLogic {
-
     protected onLoad(): void {
         super.onLoad();
+
         EventMgr.on(LogicEvent.updateBuilds, this.onUpdateBuilds, this);
         EventMgr.on(LogicEvent.updateBuild, this.onUpdateBuild, this);
         EventMgr.on(LogicEvent.deleteBuild, this.onDeleteBuild, this);
@@ -24,11 +24,11 @@ export default class MapResBuildLogic extends MapBaseLayerLogic {
 
     protected onDestroy(): void {
         EventMgr.targetOff(this);
+
         super.onDestroy();
     }
 
     protected onUpdateBuilds(areaIndex: number, addIds: number[], removeIds: number[], updateIds: number[]): void {
-  
         if (this._itemMap.has(areaIndex)) {
             for (let i: number = 0; i < addIds.length; i++) {
                 this.addItem(areaIndex, this._cmd.buildProxy.getBuild(addIds[i]));
@@ -43,7 +43,6 @@ export default class MapResBuildLogic extends MapBaseLayerLogic {
     }
 
     protected onUpdateBuild(data: MapBuildData): void {
-
         let areaIndex: number = MapUtil.getAreaIdByCellPoint(data.x, data.y);
         this.addItem(areaIndex, data);
     }

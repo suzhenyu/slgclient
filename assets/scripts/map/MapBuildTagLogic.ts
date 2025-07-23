@@ -8,7 +8,6 @@ import MapUtil from "./MapUtil";
 
 @ccclass('MapBuildTagLogic')
 export default class MapBuildTagLogic extends MapBaseLayerLogic {
-
     protected onLoad(): void {
         super.onLoad();
     }

@@ -11,7 +11,6 @@ import MapUtil from "./MapUtil";
  */
 @ccclass('MapResLogic')
 export default class MapResLogic extends MapBaseLayerLogic {
-
     protected onLoad(): void {
         super.onLoad();
     }
